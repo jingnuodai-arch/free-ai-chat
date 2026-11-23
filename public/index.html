@@ -2,95 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Free AI Chat</title>
 
   <meta name="theme-color" content="#111111" />
-  <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="stylesheet" href="/styles.css?v=20261124-2" />
 </head>
 
 <body>
-
   <div class="app">
 
-    <!-- =========================
-         LEFT SIDEBAR
-    ========================== -->
-
+    <!-- Left sidebar -->
     <aside class="sidebar">
 
       <div class="brand">
-
-        <div class="brand-mark">
-          ✦
-        </div>
-
+        <div class="brand-mark">✦</div>
         <div>
           <strong>Free AI Chat</strong>
           <span>Simple. Private. Useful.</span>
         </div>
-
       </div>
 
-
-      <!-- New chat -->
-
-      <button
-        class="new-chat"
-        id="newChat"
-        type="button"
-      >
+      <button class="new-chat" id="newChat" type="button">
         ＋ New chat
       </button>
 
-
-      <!-- Chat history -->
-
       <div class="history-section">
-
         <label>Chat history</label>
-
         <div id="chatList"></div>
-
       </div>
-
-
-      <!-- AI provider -->
 
       <div class="side-section">
-
         <label>AI provider</label>
-
         <select id="provider">
-
-          <option value="deepseek">
-            DeepSeek
-          </option>
-
-          <option value="doubao">
-            Doubao
-          </option>
-
+          <option value="deepseek">DeepSeek</option>
+          <option value="doubao">Doubao</option>
         </select>
-
       </div>
-
-
-      <!-- Information -->
 
       <div class="side-note">
-
         Your API key stays on the server.
         Never put it directly in this page.
-
       </div>
-
 
       <div class="sidebar-footer">
         Free AI Chat · 2026
@@ -98,30 +52,14 @@
 
     </aside>
 
-
-    <!-- =========================
-         MAIN CHAT
-    ========================== -->
-
+    <!-- Main chat area -->
     <main class="chat">
 
-
-      <!-- Top bar -->
-
       <header class="topbar">
-
         <div>
-
-          <h1 id="title">
-            DeepSeek
-          </h1>
-
-          <p>
-            Ask anything. Keep it simple.
-          </p >
-
+          <h1 id="title">DeepSeek</h1>
+          <p>Ask anything. Keep it simple.</p>
         </div>
-
 
         <button
           class="icon-button"
@@ -131,42 +69,27 @@
         >
           ⌫
         </button>
-
       </header>
 
-
-      <!-- Messages -->
-
-      <section
-        class="messages"
-        id="messages"
-      >
+      <section class="messages" id="messages">
 
         <div class="welcome">
+          <div class="welcome-icon">✦</div>
 
-          <div class="welcome-icon">
-            ✦
-          </div>
-
-          <h2>
-            What can I help you with?
-          </h2>
+          <h2>What can I help you with?</h2>
 
           <p>
             Ask a question, brainstorm an idea,
             translate text, or just chat.
-          </p >
-
+          </p>
 
           <div class="suggestions">
-
             <button
               type="button"
               data-prompt="Explain something difficult in simple English."
             >
               Explain simply
             </button>
-
 
             <button
               type="button"
@@ -175,37 +98,25 @@
               Brainstorm ideas
             </button>
 
-
             <button
               type="button"
               data-prompt="Translate this into natural English: "
             >
               Translate
             </button>
-
           </div>
-
         </div>
 
       </section>
 
-
-      <!-- =========================
-           MESSAGE INPUT
-      ========================== -->
-
-      <form
-        class="composer"
-        id="form"
-      >
-
+      <!-- Message input -->
+      <form class="composer" id="form">
         <textarea
           id="input"
           rows="1"
           placeholder="Message AI..."
           autocomplete="off"
         ></textarea>
-
 
         <button
           class="send"
@@ -215,23 +126,22 @@
         >
           ↑
         </button>
-
       </form>
-
 
       <div class="disclaimer">
         AI can make mistakes. Check important information.
       </div>
 
     </main>
-
   </div>
 
+  <script src="/app.js"></script>
 
-  <script src="app.js"></script>
   <script>
     if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js");
+      });
     }
   </script>
 
